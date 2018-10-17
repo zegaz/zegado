@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		81C66107217630D50005EC89 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C66106217630D50005EC89 /* Item.swift */; };
 		81D094E921747DB800061B10 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D094E821747DB800061B10 /* AppDelegate.swift */; };
 		81D094EB21747DB800061B10 /* ToDoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D094EA21747DB800061B10 /* ToDoListViewController.swift */; };
 		81D094EE21747DB800061B10 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81D094EC21747DB800061B10 /* Main.storyboard */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		81C66106217630D50005EC89 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		81D094E521747DB800061B10 /* zegado.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = zegado.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81D094E821747DB800061B10 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		81D094EA21747DB800061B10 /* ToDoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListViewController.swift; sourceTree = "<group>"; };
@@ -35,6 +37,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		81C66108217630DE0005EC89 /* Data Model */ = {
+			isa = PBXGroup;
+			children = (
+				81C66106217630D50005EC89 /* Item.swift */,
+			);
+			path = "Data Model";
+			sourceTree = "<group>";
+		};
+		81C66109217630F40005EC89 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				81D094EA21747DB800061B10 /* ToDoListViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		81C6610A217631000005EC89 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				81D094EC21747DB800061B10 /* Main.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		81C6610B217631130005EC89 /* Supporting files */ = {
+			isa = PBXGroup;
+			children = (
+				81D094EF21747DBB00061B10 /* Assets.xcassets */,
+				81D094F121747DBB00061B10 /* LaunchScreen.storyboard */,
+			);
+			path = "Supporting files";
+			sourceTree = "<group>";
+		};
 		81D094DC21747DB800061B10 = {
 			isa = PBXGroup;
 			children = (
@@ -55,11 +90,11 @@
 			isa = PBXGroup;
 			children = (
 				81D094E821747DB800061B10 /* AppDelegate.swift */,
-				81D094EA21747DB800061B10 /* ToDoListViewController.swift */,
-				81D094EC21747DB800061B10 /* Main.storyboard */,
-				81D094EF21747DBB00061B10 /* Assets.xcassets */,
-				81D094F121747DBB00061B10 /* LaunchScreen.storyboard */,
+				81C66109217630F40005EC89 /* Controller */,
+				81C6610A217631000005EC89 /* Views */,
+				81C6610B217631130005EC89 /* Supporting files */,
 				81D094F421747DBB00061B10 /* Info.plist */,
+				81C66108217630DE0005EC89 /* Data Model */,
 			);
 			path = zegado;
 			sourceTree = "<group>";
@@ -136,6 +171,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				81D094EB21747DB800061B10 /* ToDoListViewController.swift in Sources */,
+				81C66107217630D50005EC89 /* Item.swift in Sources */,
 				81D094E921747DB800061B10 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
