@@ -7,27 +7,20 @@
 //
 
 import UIKit
+import CoreData
 
 class ToDoListViewController: UITableViewController {
 
     var itemArray = [Item]()
     let dataFilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("Items.plist")
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
 //    let defaults = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-    
-        
-        
-        
         loadItems()
-//        if let items = defaults.array(forKey: "ToDoListArray") as? [Item]{
-//            itemArray = items
-//            print(itemArray)
-//        }
 
         
         // Do any additional setup after loading the view, typically from a nib.
@@ -51,6 +44,11 @@ class ToDoListViewController: UITableViewController {
         //print(itemArray[indexPath.row])
         // selection disappear...
         itemArray[indexPath.row].done = !itemArray[indexPath.row].done
+        
+//        // this order has to be kept!!!
+//        context.delete(itemArray[indexPath.row])
+//        itemArray.remove(at: indexPath.row)
+//
         saveData()
         tableView.deselectRow(at: indexPath, animated: true)
         
@@ -65,7 +63,8 @@ class ToDoListViewController: UITableViewController {
         let action = UIAlertAction(title: "Add item", style: .default) { (action) in
 
             if textField.text != ""{
-                let newItem = Item()
+                
+                let newItem = Item(context: self.context)
                 newItem.title = textField.text!
                 self.itemArray.append(newItem)
                 self.saveData()
@@ -83,30 +82,57 @@ class ToDoListViewController: UITableViewController {
     }
     
     func saveData() {
-        let encoder = PropertyListEncoder()
+       
         do{
-            let data = try encoder.encode(itemArray) //set the dataflow
-            try data.write(to: dataFilePath!) //write to the file
+            try context.save()
         }catch{
-            print("Error encoding array \(error)!")
+            print("Error saving context: \(error)")
         }
         tableView.reloadData()
     }
     
-    func loadItems(){
+    func loadItems(with request: NSFetchRequest<Item> = Item.fetchRequest()) {
         //check whether file is av?
-        if let data = try? Data(contentsOf: dataFilePath!){
-            //get the decoder initialized
-            let decoder = PropertyListDecoder()
-            do{
-                //try to set the data from plist...
-                itemArray = try decoder.decode([Item].self, from: data)
-            }catch{
-                print("Can not retrieve data with error: \(error)")
+
+        do {
+            itemArray = try context.fetch(request)
+        }catch{
+            print("Error fetching the data \(error)")
+        }
+        tableView.reloadData()
+    }
+    
+    
+    
+}
+//MARK: - SearchBar methods
+extension ToDoListViewController: UISearchBarDelegate{
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchBar.text?.count == 0{
+            loadItems()
+            DispatchQueue.main.async {
+                searchBar.resignFirstResponder()
             }
-            
         }
     }
     
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        //set the request and fetch from Items
+        if searchBar.text?.count != 0{
+            let request : NSFetchRequest<Item> = Item.fetchRequest()
+            //generate the predicate, aka search string
+            //update the request with the predicate
+            request.predicate = NSPredicate(format: "title CONTAINS[cd] %@", searchBar.text!)
+            //sort the request based on the title
+            request.sortDescriptors = [NSSortDescriptor(key: "title", ascending: true)]
+            //let's get the data :)
+
+            loadItems(with: request)
+            tableView.reloadData()
+        }else{
+            loadItems()
+        }
+    }
 }
 
