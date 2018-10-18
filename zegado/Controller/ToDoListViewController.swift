@@ -12,6 +12,13 @@ import CoreData
 class ToDoListViewController: UITableViewController {
 
     var itemArray = [Item]()
+    var selectedCategory : Category?{
+        didSet{
+            let categoryPredicate = NSPredicate(format: "parentCategory.name MATCHES %@", selectedCategory!.name!)
+            loadItems(predicate: categoryPredicate)
+        }
+    }
+    
     let dataFilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("Items.plist")
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
@@ -20,7 +27,7 @@ class ToDoListViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loadItems()
+        //loadItems()
 
         
         // Do any additional setup after loading the view, typically from a nib.
@@ -66,6 +73,7 @@ class ToDoListViewController: UITableViewController {
                 
                 let newItem = Item(context: self.context)
                 newItem.title = textField.text!
+                newItem.parentCategory = self.selectedCategory
                 self.itemArray.append(newItem)
                 self.saveData()
                 
@@ -91,9 +99,18 @@ class ToDoListViewController: UITableViewController {
         tableView.reloadData()
     }
     
-    func loadItems(with request: NSFetchRequest<Item> = Item.fetchRequest()) {
+    func loadItems(with request: NSFetchRequest<Item> = Item.fetchRequest(),predicate: NSPredicate? = nil) {
         //check whether file is av?
-
+        let categoryPredicate = NSPredicate(format: "parentCategory.name MATCHES %@", selectedCategory!.name!)
+        
+        if let additionalPredicate = predicate {
+            request.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [categoryPredicate,additionalPredicate])
+        }else{
+            request.predicate = categoryPredicate
+        }
+        
+//        let compoundPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [categoryPredicate,predicate])
+//        request.predicate = compoundPredicate
         do {
             itemArray = try context.fetch(request)
         }catch{
@@ -109,8 +126,12 @@ class ToDoListViewController: UITableViewController {
 extension ToDoListViewController: UISearchBarDelegate{
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        if searchBar.text?.count == 0{
-            loadItems()
+        //triggered when SB text changed and user hit cancel..
+        if searchBar.text?.count == 0{ //if the text is empty...
+            //load the items again
+            let categoryPredicate = NSPredicate(format: "parentCategory.name MATCHES %@", selectedCategory!.name!)
+            loadItems(predicate: categoryPredicate)
+            //async way dismiss the keyboard...
             DispatchQueue.main.async {
                 searchBar.resignFirstResponder()
             }
@@ -128,10 +149,11 @@ extension ToDoListViewController: UISearchBarDelegate{
             request.sortDescriptors = [NSSortDescriptor(key: "title", ascending: true)]
             //let's get the data :)
 
-            loadItems(with: request)
+            loadItems(with: request,predicate: request.predicate!)
             tableView.reloadData()
         }else{
-            loadItems()
+            let categoryPredicate = NSPredicate(format: "parentCategory.name MATCHES %@", selectedCategory!.name!)
+            loadItems(predicate: categoryPredicate)
         }
     }
 }
