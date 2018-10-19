@@ -14,9 +14,11 @@
 		81D094EE21747DB800061B10 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81D094EC21747DB800061B10 /* Main.storyboard */; };
 		81D094F021747DBB00061B10 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81D094EF21747DBB00061B10 /* Assets.xcassets */; };
 		81D094F321747DBB00061B10 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81D094F121747DBB00061B10 /* LaunchScreen.storyboard */; };
+		C92D10F9B3004865F61BCD3E /* Pods_zegado.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD0035D0A3129CB5BDE7A714 /* Pods_zegado.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		721FE1F4D47072F8825620DC /* Pods-zegado.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-zegado.debug.xcconfig"; path = "Pods/Target Support Files/Pods-zegado/Pods-zegado.debug.xcconfig"; sourceTree = "<group>"; };
 		810D18512178AEEB00887246 /* CategoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewController.swift; sourceTree = "<group>"; };
 		811BDC3A21774760003761D8 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		81D094E521747DB800061B10 /* zegado.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = zegado.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -26,6 +28,8 @@
 		81D094EF21747DBB00061B10 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		81D094F221747DBB00061B10 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		81D094F421747DBB00061B10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CD0035D0A3129CB5BDE7A714 /* Pods_zegado.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_zegado.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E34B0E58082763D856572B7B /* Pods-zegado.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-zegado.release.xcconfig"; path = "Pods/Target Support Files/Pods-zegado/Pods-zegado.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,12 +37,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C92D10F9B3004865F61BCD3E /* Pods_zegado.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		00C277D349C598A8CD411BFC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				721FE1F4D47072F8825620DC /* Pods-zegado.debug.xcconfig */,
+				E34B0E58082763D856572B7B /* Pods-zegado.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		6DA706901E874803EC7CE46F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CD0035D0A3129CB5BDE7A714 /* Pods_zegado.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		81C66108217630DE0005EC89 /* Data Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -78,6 +100,8 @@
 			children = (
 				81D094E721747DB800061B10 /* zegado */,
 				81D094E621747DB800061B10 /* Products */,
+				00C277D349C598A8CD411BFC /* Pods */,
+				6DA706901E874803EC7CE46F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -109,9 +133,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 81D094F721747DBB00061B10 /* Build configuration list for PBXNativeTarget "zegado" */;
 			buildPhases = (
+				A2C8EA5D2C066EFAECD805E9 /* [CP] Check Pods Manifest.lock */,
 				81D094E121747DB800061B10 /* Sources */,
 				81D094E221747DB800061B10 /* Frameworks */,
 				81D094E321747DB800061B10 /* Resources */,
+				680A0C8AD6B1B0CB0F14F9B2 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -167,6 +193,55 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		680A0C8AD6B1B0CB0F14F9B2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-zegado/Pods-zegado-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-zegado/Pods-zegado-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A2C8EA5D2C066EFAECD805E9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-zegado-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		81D094E121747DB800061B10 /* Sources */ = {
@@ -320,6 +395,7 @@
 		};
 		81D094F821747DBB00061B10 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 721FE1F4D47072F8825620DC /* Pods-zegado.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -338,6 +414,7 @@
 		};
 		81D094F921747DBB00061B10 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E34B0E58082763D856572B7B /* Pods-zegado.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
