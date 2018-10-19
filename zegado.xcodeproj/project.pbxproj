@@ -8,7 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		810D18522178AEEB00887246 /* CategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810D18512178AEEB00887246 /* CategoryTableViewController.swift */; };
-		811BDC3B21774760003761D8 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 811BDC3921774760003761D8 /* DataModel.xcdatamodeld */; };
+		8146E8BE217A024C00226019 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8146E8BD217A024C00226019 /* Item.swift */; };
+		8146E8C0217A025900226019 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8146E8BF217A025900226019 /* Category.swift */; };
 		81D094E921747DB800061B10 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D094E821747DB800061B10 /* AppDelegate.swift */; };
 		81D094EB21747DB800061B10 /* ToDoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D094EA21747DB800061B10 /* ToDoListViewController.swift */; };
 		81D094EE21747DB800061B10 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81D094EC21747DB800061B10 /* Main.storyboard */; };
@@ -20,7 +21,8 @@
 /* Begin PBXFileReference section */
 		721FE1F4D47072F8825620DC /* Pods-zegado.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-zegado.debug.xcconfig"; path = "Pods/Target Support Files/Pods-zegado/Pods-zegado.debug.xcconfig"; sourceTree = "<group>"; };
 		810D18512178AEEB00887246 /* CategoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewController.swift; sourceTree = "<group>"; };
-		811BDC3A21774760003761D8 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
+		8146E8BD217A024C00226019 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		8146E8BF217A025900226019 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		81D094E521747DB800061B10 /* zegado.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = zegado.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81D094E821747DB800061B10 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		81D094EA21747DB800061B10 /* ToDoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListViewController.swift; sourceTree = "<group>"; };
@@ -64,7 +66,8 @@
 		81C66108217630DE0005EC89 /* Data Model */ = {
 			isa = PBXGroup;
 			children = (
-				811BDC3921774760003761D8 /* DataModel.xcdatamodeld */,
+				8146E8BF217A025900226019 /* Category.swift */,
+				8146E8BD217A024C00226019 /* Item.swift */,
 			);
 			path = "Data Model";
 			sourceTree = "<group>";
@@ -248,10 +251,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8146E8BE217A024C00226019 /* Item.swift in Sources */,
 				81D094EB21747DB800061B10 /* ToDoListViewController.swift in Sources */,
-				811BDC3B21774760003761D8 /* DataModel.xcdatamodeld in Sources */,
 				81D094E921747DB800061B10 /* AppDelegate.swift in Sources */,
 				810D18522178AEEB00887246 /* CategoryTableViewController.swift in Sources */,
+				8146E8C0217A025900226019 /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -453,19 +457,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		811BDC3921774760003761D8 /* DataModel.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				811BDC3A21774760003761D8 /* DataModel.xcdatamodel */,
-			);
-			currentVersion = 811BDC3A21774760003761D8 /* DataModel.xcdatamodel */;
-			path = DataModel.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 81D094DD21747DB800061B10 /* Project object */;
 }
