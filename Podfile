@@ -7,5 +7,6 @@ target 'zegado' do
 
   # Pods for zegado
     pod 'RealmSwift'
+    pod 'SwipeCellKit'
 
 end

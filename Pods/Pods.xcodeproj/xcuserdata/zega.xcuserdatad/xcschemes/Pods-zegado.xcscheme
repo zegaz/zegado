@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1000"
+   LastUpgradeVersion = "0930"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "9CB6032B3FBA5F028D0EED07E308E5AE"
+               BlueprintIdentifier = "4791D75012055A83792E7A9FD9680D2B"
                BuildableName = "Pods_zegado.framework"
                BlueprintName = "Pods-zegado"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "9CB6032B3FBA5F028D0EED07E308E5AE"
+            BlueprintIdentifier = "4791D75012055A83792E7A9FD9680D2B"
             BuildableName = "Pods_zegado.framework"
             BlueprintName = "Pods-zegado"
             ReferencedContainer = "container:Pods.xcodeproj">
